@@ -4,7 +4,7 @@ and strawberries too I guess
 -->
 Author: Flora Cheng
 
-Design: So in addition to the typical catching fruit/food/items that fall from the sky game, this game has more realistic gravity and also includes the addition of trampolines, which may or may not help with your catching ability! Exciting! 
+Design: So in addition to the typical catching fruit/food/items that fall from the sky game, this game has more realistic gravity and also includes the addition of trampolines, which may or may not help with your catching ability! In addition to the general items to catch, there's also a special item to help move the trampoline to more advantagous positions, how exciting! 
 
 Screen Shot:
 <img width="501" alt="Screenshot 2024-09-05 at 12 08 45 PM" src="https://github.com/user-attachments/assets/c7620a9b-2930-403a-9fee-03946e4557f1">
@@ -29,6 +29,8 @@ Falling Objects
 ![cabbage](data/cabbage.png)
 - [carrot](data/carrot.png)
 ![carrot](data/carrot.png)
+- [hammer](data/hammer.png)
+![hammer](data/hammer.png)
 
 [trampoline](data/trampoline.png)
 ![trampoline](data/trampoline.png)
@@ -41,7 +43,7 @@ Falling Objects
 
 How To Play:
 
-Use left and right arrows to move the basket and catch the falling foods!
+Use left and right arrows to move the basket and catch the falling foods. Catch the hammer and the trampoline will follow the basket for a short period of time! Note items will bounce if they land on the trampoline!
 
 This game was built with [NEST](NEST.md).
 
