@@ -53,6 +53,10 @@ struct PlayMode : Mode {
 	uint32_t num_obj = 5;
 	std::vector<Obj> falling_obj;
 
+	// hammer to move trampoline
+	float move_time = 0.0f;
+	uint32_t hammer_ind;
+
 	// trampoline:
 	Obj trampoline;
 

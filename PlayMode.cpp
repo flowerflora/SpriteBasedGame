@@ -106,13 +106,17 @@ PlayMode::PlayMode() {
 	pallete_ind++;
 
 	// loading falling tiles and add to the possible object lists
-	std::vector<std::string> falling_paths = {"data/strawberry.png","data/carrot.png","data/cabbage.png"};
+	std::vector<std::string> falling_paths = {"data/strawberry.png","data/carrot.png","data/cabbage.png","data/hammer.png"};
 	for(std::string str:falling_paths){
 		static Obj food;
 		food.size = load_sprite(&ppu,str,tile_ind,pallete_ind);
 		food.sprite_ind = tile_ind;
 		food.pallete_ind = pallete_ind;
 		possible_obj.emplace_back(food);
+
+		if(str=="data/hammer.png"){
+			hammer_ind = pallete_ind;
+		}
 
 		tile_ind+=food.size[0]*food.size[1];
 		pallete_ind++;
@@ -185,6 +189,11 @@ void PlayMode::update(float elapsed) {
 	up.downs = 0;
 	down.downs = 0;
 
+	if(move_time>0.0){
+		trampoline.pos.x = player.at.x;
+		move_time-=elapsed;
+	}
+
 	// falling foods
 	constexpr float FallingSpeed = 40.0f;
 	for(size_t i = 0; i<falling_obj.size(); i++){
@@ -196,7 +205,10 @@ void PlayMode::update(float elapsed) {
 			if (falling_obj[i].pos.x>= std::max(0.0f,player.at.x-falling_obj[i].size.x*8 )&& falling_obj[i].pos.x <=player.at.x + player.size.x*8){
 				points +=10;  // add points
 				printf("Collected Points: %d\n",points);
-				// if we get to this point, could also check if the item was a power item to move the trampoline
+				// check if the item was a power item to move the trampoline
+				if (falling_obj[i].pallete_ind==hammer_ind){
+					move_time = 3.0f;
+				}
 			}
 			// remove/ move back to top with random image -- reset the image index + size
 			falling_obj[i].pos.x = std::rand() % (PPU466::BackgroundWidth * 4);
