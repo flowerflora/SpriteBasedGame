@@ -1,22 +1,47 @@
-# (TODO: your game's title)
-
+# Cloudy With a Chance of Greens
+<!---
+and strawberries too I guess
+-->
 Author: Flora Cheng
 
-Design: (TODO: In two sentences or fewer, describe what is new and interesting about your game.)
+Design: So in addition to the typical catching fruit/food/items that fall from the sky game, this game has more realistic gravity and also includes the addition of trampolines, which may or may not help with your catching ability! Exciting! 
 
 Screen Shot:
+<img width="501" alt="Screenshot 2024-09-05 at 12 08 45 PM" src="https://github.com/user-attachments/assets/c7620a9b-2930-403a-9fee-03946e4557f1">
 
-![Screen Shot](screenshot.png)
 
 How Your Asset Pipeline Works:
 
-(TODO: describe the steps in your asset pipeline, from source files to tiles/backgrounds/whatever you upload to the PPU466.)
+1. Image assets are added to the directory
+2. Image files are loaded in by the script through the load png function
+3. Iterate through the output from the load png function to find the colors used in the image -- only the first 4 colors will be recorded to the pallete
+4. Then iterate through the png's data by 8x8 chunks
+5. Create a tile based off of each each chunk, by iterating through the chunk by row and then column to find the corresponding index to the pallete and update the 0bit and 1bit
+6. Save the tile and pallete indicies for each png for future reference
 
-(TODO: make sure the source files you drew are included. You can [link](your/file.png) to them to be a bit fancier.)
+
+Source Files:
+
+Falling Objects
+- [strawberry](data/strawberry.png)
+![strawberry](data/strawberry.png)
+- [cabbage](data/cabbage.png)
+![cabbage](data/cabbage.png)
+- [carrot](data/carrot.png)
+![carrot](data/carrot.png)
+
+[trampoline](data/trampoline.png)
+![trampoline](data/trampoline.png)
+
+[basket](data/basket.png)
+![basket](data/basket.png)
+
+[background](data/background.png)
+![background](data/background.png)
 
 How To Play:
 
-(TODO: describe the controls and (if needed) goals/strategy.)
+Use left and right arrows to move the basket and catch the falling foods!
 
 This game was built with [NEST](NEST.md).
 
